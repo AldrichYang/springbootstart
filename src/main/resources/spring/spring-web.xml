@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <beans>
+        <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+            <property name="contentNegotiationManager" ref="contentNegotiationManager"/>
+        </bean>
+        <bean id="contentNegotiationManager"
+              class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+            <property name="favorPathExtension" value="false"/>
+            <property name="favorParameter" value="true"/>
+            <property name="ignoreAcceptHeader" value="true"/>
+            <property name="parameterName" value="contentType"/>
+            <property name="mediaTypes">
+                <map>
+                    <entry key="xml" value="application/xml"/>
+                    <entry key="json" value="application/json"/>
+                    <entry key="form_url" value="application/x-www-form-urlencoded"/>
+                </map>
+            </property>
+        </bean>
+        <bean class="org.springframework.web.servlet.view.xml.MarshallingView">
+            <property name="modelKey" value="rtn"/>
+        </bean>
+        <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+        </bean>
+        <bean class="org.springframework.web.servlet.view.xml.MappingJackson2XmlView"/>
+        <bean class="org.springframework.web.servlet.view.XmlViewResolver"/>
+    </beans>
+</beans>

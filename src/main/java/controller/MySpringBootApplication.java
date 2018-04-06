@@ -1,4 +1,4 @@
-package com.yh.springbootstart;
+package controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,10 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 //该注解开启组件扫描和自动配置,结合了Configuration,ComponentScan,EnableAutoConfiguration三个注解
 @SpringBootApplication
-public class SpringbootstartApplication {
+public class MySpringBootApplication {
 
     public static void main(String[] args) {
         //负责启动引导程序
-        SpringApplication.run(SpringbootstartApplication.class, args);
+        SpringApplication.run(HomeController.class, args);
     }
 }
