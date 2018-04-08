@@ -12,6 +12,6 @@ public class MySpringBootApplication {
 
     public static void main(String[] args) {
         //负责启动引导程序
-        SpringApplication.run(HomeController.class, args);
+        SpringApplication.run(MyConfig.class, args);
     }
 }
